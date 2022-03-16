@@ -3,7 +3,7 @@ import React from 'react'
 export const Journalapp = () => {
   return (
     <>
-        <h1> Journalapp </h1> 
+        <h1> Journal app </h1> 
     </>
   )
 }
