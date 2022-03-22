@@ -1,28 +1,26 @@
 import React from 'react'
-import { BrowserRouter, Route, Router, Switch  } from 'react-router-dom'
-
+import { Route,Switch } from 'react-router-dom'
+import { LoginScreen } from '../auth/LoginScreen'
+import { RegisterScreen } from '../RegisterScreen'
 
 export const AuthRouter = () => {
-  return ( 
-     <Router> 
-         <div>
-             <Switch>
-             
-             <Route 
-             path='/auth' 
-             component = {AuthRouter} 
-             />  
+  return (
+    <div>
+        <Switch>
+            <Route 
+            exact 
+            path = '/auth/login'
+            component = {LoginScreen}                
+                
+          /> 
 
-             </Switch>
-         </div>
-    
-     </Router> 
- 
- 
+           <Route 
+            exact 
+            path = '/auth/login'
+            component = {RegisterScreen}    
+            /> 
 
-
-
-    
+        </Switch>
+    </div>
   )
 }
- 
