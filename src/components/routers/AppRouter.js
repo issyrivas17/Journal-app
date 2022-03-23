@@ -1,4 +1,5 @@
 import React from 'react' 
+import { Redirect } from 'react-router-dom';
 import {
     BrowserRouter as Router,
     Switch,
@@ -23,6 +24,9 @@ export const AppRouter = () => {
                path= "/" 
                component = {JournalScreen} 
                /> 
+
+             <Redirect to= "auth/login"/>  
+
            </Switch>
        </div>
 
