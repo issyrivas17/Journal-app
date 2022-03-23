@@ -5,8 +5,8 @@ import { RegisterScreen } from '../RegisterScreen';
 
 export const AuthRouter = () => {
   return (
-    <div className ='auth_main'> 
-    <div className='auth_box-container'>
+    <div className ='auth__main'> 
+    <div className='auth__box-container'>
     <Switch>
            <Route exact patch = "/auth/login"  component= {LoginScreen}/> 
 
