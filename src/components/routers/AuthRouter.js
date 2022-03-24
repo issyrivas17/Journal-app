@@ -13,7 +13,7 @@ export const AuthRouter = () => {
 
           <Route exact 
           patch = "/auth/register" 
-          component= {RegisterScreen} 
+          component={RegisterScreen} 
         
           /> 
 
