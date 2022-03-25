@@ -15,7 +15,7 @@ export const AppRouter = () => {
        <div>
            <Switch>
                <Route 
-               patch= "/auth" 
+               path= "/auth" 
                component ={AuthRouter} 
                />
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Sidebar } from './Sidebar'
 
 export const JournalScreen = () => {
   return (
@@ -9,6 +10,7 @@ export const JournalScreen = () => {
       <main>
 
         <h1> Main content </h1> 
+        
       </main>
 
 
