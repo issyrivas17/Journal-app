@@ -1,7 +1,20 @@
 import React from 'react' 
 import {Link}from 'react-router-dom'
+import { useForm } from '../../hooks/useForm'
 
 export const LoginScreen = () => {
+
+ const [formValues,handleInputChange] = useForm ({
+   email: "ismeniarivas17@gmail.com",
+   password : "123"
+
+ }); 
+
+ const {email,password} = formValues;  
+
+
+
+
   return (
     <div>
          
@@ -13,13 +26,18 @@ export const LoginScreen = () => {
         placeholder="email" 
         name= "email" 
         className='auth__input'
-        autoComplete='off'
+        autoComplete='off' 
+        value = {email} 
+        onChange = {handleInputChange}
         />
         <input
         type= "password" 
         placeholder="Password" 
         name= "password"   
-        className='auth__input'
+        className='auth__input' 
+        value= {password} 
+        onChange = {handleInputChange} 
+
         />
 
        <button 
