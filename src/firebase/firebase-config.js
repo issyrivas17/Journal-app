@@ -31,7 +31,7 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export {
     db,
-    GoogleAuthProvider,
+    googleAuthProvider,
     firebase 
 }
 

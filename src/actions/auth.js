@@ -1,4 +1,5 @@
-import { types } from "../types/types"
+import { types } from "../types/types" 
+import {firebase} from 'firebase/firebase-config' 
 
 export const startLoginEmailPassword = (email,password) => {
     return (dispatch) => {
@@ -14,7 +15,11 @@ export const startLoginEmailPassword = (email,password) => {
     }
 }
 
-
+export const startGoogleLogin = () => {
+  return (dispatch) => {
+    firebase
+  }
+}
 
 
 export const login =  (uid,displayName) => ({
