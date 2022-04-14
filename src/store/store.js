@@ -10,7 +10,7 @@ const reducers = combineReducers ({
 auth: authReducer
 
 })
-export const store = createStore (
+export const store = createStore ( 
     reducers,
      composeEnhancers (
          applyMiddleware (thunk)
