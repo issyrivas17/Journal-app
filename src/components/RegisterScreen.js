@@ -16,7 +16,18 @@ export const RegisterScreen = () => {
 
   const handleRegister = (e) =>{ 
     e.preventDefault (); 
-    console.log(name,email,password,password2)
+    if (isFormValid ()) {
+      console.log('Formulario correcto');
+    }
+    
+  }
+
+  const isFormValid= () => { 
+    if (name.trim().length === 0){
+      console.log ('Name is required'); 
+      return false; 
+    }
+
   }
 
   return (
@@ -25,6 +36,11 @@ export const RegisterScreen = () => {
     <h3 className='auth__tittle'>Register</h3> 
 
     <form onSubmit={handleRegister}>
+
+     <div className='auth__alert-error'> 
+      Hola mundo 
+     </div>
+
       <input
       type= "text" 
       placeholder="Email" 
@@ -32,7 +48,7 @@ export const RegisterScreen = () => {
       className='auth__input'
       autoComplete='off' 
       value= {email} 
-      Onchange= {handleInputChange}
+      onChange={handleInputChange}
       /> 
 
       <input
@@ -42,7 +58,7 @@ export const RegisterScreen = () => {
       className='auth__input'
       autoComplete='off'
       value= {name} 
-      Onchange= {handleInputChange}
+      onChange={handleInputChange}
       />
 
       <input
@@ -51,7 +67,7 @@ export const RegisterScreen = () => {
       name= "password"   
       className='auth__input'
       value= {password} 
-      Onchange= {handleInputChange}
+      onChange={handleInputChange}
       /> 
 
      <input
@@ -60,7 +76,7 @@ export const RegisterScreen = () => {
       name= "confirm"   
       className='auth__input'
       value= {password2} 
-      Onchange= {handleInputChange}
+      onChange={handleInputChange}
       />
 
      <button 
