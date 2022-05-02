@@ -16,19 +16,17 @@ export const RegisterScreen = () => {
 
   const handleRegister = (e) =>{ 
     e.preventDefault (); 
-    if (isFormValid ()) {
-      console.log('Formulario correcto');
-    }
-    
+    console.log(name,email,password,password2); 
   }
+  
 
-  const isFormValid= () => { 
+ /*  const isFormValid= () => { 
     if (name.trim().length === 0){
       console.log ('Name is required'); 
       return false; 
     }
 
-  }
+  } */
 
   return (
      <div>
@@ -82,12 +80,9 @@ export const RegisterScreen = () => {
      <button 
      type='submit'
      className='btn btn-primary btn-block mb-5' 
-     
      > 
-
      Register
-
-     </button> 
+</button> 
 
      
         <Link to ="/auth/login"
