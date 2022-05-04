@@ -16,18 +16,22 @@ export const RegisterScreen = () => {
 
   const handleRegister = (e) =>{ 
     e.preventDefault (); 
-    if(isFormValid ()){
-      console.log('Formulario correcto'); 
+
+    if (isFormValid () ) {
+      console.log('Formulario correcto');  
     }
   }
   
 
-  const isFormValid= () => { 
+  const isFormValid = () => { 
     if (name.trim().length === 0){
       console.log ('Name is required'); 
       return false; 
     }
+  
 
+
+     return true; 
   }
 
   return (
