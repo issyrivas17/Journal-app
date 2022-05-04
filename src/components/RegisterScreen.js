@@ -16,17 +16,19 @@ export const RegisterScreen = () => {
 
   const handleRegister = (e) =>{ 
     e.preventDefault (); 
-    console.log(name,email,password,password2); 
+    if(isFormValid ()){
+      console.log('Formulario correcto'); 
+    }
   }
   
 
- /*  const isFormValid= () => { 
+  const isFormValid= () => { 
     if (name.trim().length === 0){
       console.log ('Name is required'); 
       return false; 
     }
 
-  } */
+  }
 
   return (
      <div>
@@ -51,11 +53,11 @@ export const RegisterScreen = () => {
 
       <input
       type= "text" 
-      placeholder="Name" 
+      placeholder="name" 
       name= "name " 
       className='auth__input'
       autoComplete='off'
-      value= {name} 
+      defaultValue={name} 
       onChange={handleInputChange}
       />
 
