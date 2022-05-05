@@ -1,7 +1,8 @@
 
 import React from 'react' 
 import {Link} from 'react-router-dom'
-import { useForm } from '../hooks/useForm'
+import { useForm } from '../hooks/useForm' 
+import validator from 'validator'; 
 
 export const RegisterScreen = () => {
 
@@ -24,8 +25,12 @@ export const RegisterScreen = () => {
   
 
   const isFormValid = () => { 
+
     if (name.trim().length === 0){
       console.log ('Name is required'); 
+      return false; 
+    } else if (!validator.isEmail (email) ) {
+      console.log ('Email is not valid')
       return false; 
     }
   
