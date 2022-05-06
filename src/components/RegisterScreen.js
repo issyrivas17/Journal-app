@@ -26,7 +26,7 @@ export const RegisterScreen = () => {
 
   const isFormValid = () => { 
 
-    if (name.trim().length === 0){
+    if (name.trim().length === 0) {
       console.log ('Name is required'); 
       return false; 
     } else if (!validator.isEmail (email) ) {
@@ -36,9 +36,6 @@ export const RegisterScreen = () => {
       console.log('Password should be at least 6 characters and match each other'); 
       return false 
     }
-  
-
-
      return true; 
   }
 
@@ -66,7 +63,7 @@ export const RegisterScreen = () => {
       <input
       type= "text" 
       placeholder="name" 
-      name= "name " 
+      name="name " 
       className='auth__input'
       autoComplete='off'
       defaultValue={name}  
