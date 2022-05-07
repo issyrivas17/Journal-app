@@ -1,10 +1,10 @@
 
 import React from 'react' 
 import {Link} from 'react-router-dom'
-import { useForm } from '../hooks/useForm' 
+import { useForm } from '../../hooks/useForm';
 import validator from 'validator'; 
 
-export const RegisterScreen = () => {
+export const RegisterScreen = () => { 
 
   const [formValues,handleInputChange] = useForm({
     name:'Ismenia',
