@@ -46,7 +46,7 @@ export const RegisterScreen = () => {
   return (
     <div>
 
-      <h3 className='auth__tittle'>Register</h3>
+      <h3 className="auth__tittle">Register</h3>
 
       <form onSubmit={handleRegister}>
         {
