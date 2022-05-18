@@ -1,30 +1,30 @@
-import React from 'react' 
-import { Redirect } from 'react-router-dom';
-import {Switch,Route} from 'react-router-dom'; 
-import { LoginScreen } from '../auth/LoginScreen';
+import React from 'react'
+import { Redirect, Switch, Route } from 'react-router-dom'
+
+import { LoginScreen } from '../auth/LoginScreen'
 import { RegisterScreen } from '../auth/RegisterScreen'
 
 export const AuthRouter = () => {
   return (
-    <div className ='auth__main'> 
+    <div className ='auth__main'>
     <div className='auth__box-container'>
     <Switch>
-           <Route  
+           <Route
            exact
-            path = "/auth/login"  
-            component= {LoginScreen}/> 
+            path = "/auth/login"
+            component= {LoginScreen}/>
 
-          <Route 
+          <Route
           exact
-          path = "/auth/register" 
-          component={RegisterScreen} 
-        
-          /> 
+          path = "/auth/register"
+          component={RegisterScreen}
 
-         <Redirect to = "/auth/login"/> 
-           </Switch> 
+          />
+
+         <Redirect to = "/auth/login"/>
+           </Switch>
     </div>
-       
+
     </div>
   )
 }

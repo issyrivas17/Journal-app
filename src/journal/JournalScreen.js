@@ -5,18 +5,17 @@ import { Sidebar } from './Sidebar'
 
 export const JournalScreen = () => {
   return (
-    <div className='journal__main-content'> 
-       
-     <Sidebar/> 
-      
+    <div className='journal__main-content'>
+
+     <Sidebar/>
+
       <main>
 
-     {/*   <NothingSelected/>  */} 
-      <NoteScreen/> 
-        
+     {/*   <NothingSelected/>  */}
+      <NoteScreen/>
+
       </main>
 
-
-        </div> 
+        </div>
   )
 }
