@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth'
 
 export const LoginScreen = () => {
   const dispatch = useDispatch()
+  const { msgError } = useSelector(state => state.ui)
+
+  console.log(msgError)
 
   const [formValues, handleInputChange] = useForm({
     email: '',
