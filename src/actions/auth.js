@@ -1,6 +1,8 @@
 import { types } from '../types/types'
 import { getAuth, signInWithPopup } from 'firebase/auth'
 import { googleAuthProvider } from '../components/firebase/firebase-Config'
+import { FirebaseError } from 'firebase/app'
+import { async } from '@firebase/util'
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -9,6 +11,17 @@ export const startLoginEmailPassword = (email, password) => {
     }, 3500)
   }
 }
+export const startRegisterWithEmailPasswordName = (email, password, name) => {
+  return (dispatch) => {
+    Firebase.auth().createUserWithEmailAndPassword (email,password)
+    .then(async ({user}) => {
+    await user.updateProfile ({ displayName:name});
+    dispatch (
+      login (user.uid, user.displayName ) 
+    )
+    )};
+  }
+
 
 export const startGoogleLogin = () => {
   return (dispatch) => {
@@ -26,7 +39,6 @@ export const login = (uid, displayName) => ({
   payload: {
     uid,
     displayName
-
   }
 
 })
