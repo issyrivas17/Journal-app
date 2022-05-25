@@ -20,11 +20,13 @@ export const startRegisterWithEmailPasswordName = ( email, password, name) => {
 
         dispatch (
           login( user.uid, user.displayName )
-        )
+      )
       })
-        .catch ( e => 
-        console.log(e)
-      }
+     
+      .catch (e => {
+        console.log(e) 
+      })
+    
     } 
       
 export const startGoogleLogin = () => {
