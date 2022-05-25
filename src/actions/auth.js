@@ -1,7 +1,6 @@
 import { types } from '../types/types'
 import { getAuth, signInWithPopup } from 'firebase/auth'
 import { googleAuthProvider } from '../components/firebase/firebase-Config'
-import { FirebaseError } from 'firebase/app'
 import { async } from '@firebase/util'
 
 export const startLoginEmailPassword = (email, password) => {
@@ -11,40 +10,37 @@ export const startLoginEmailPassword = (email, password) => {
     }, 3500)
   }
 }
-export const startRegisterWithEmailPasswordName = (email, password, name) => {
-  return (dispatch) => {
 
-  firebase.auth().createUserWithEmailAndPassword( email, password ) 
-  .then ( ({user} )=> { 
+export const startRegisterWithEmailPasswordName = ( email, password, name) => {
+    return ( dispatch ) => {
+      firebase.auth().createUserWithEmailAndPassword (email,password) 
+      .then( async({user}) => { 
 
-  user.updateProfile ({displayName:name}); 
+        await user.updateProfile({ displayName: name }) 
 
-  dispatch (
-    login (user.uid, user.displayName)
-  )
-    }) 
-    .catch (e => {
-      console.log(e) 
-    }) 
-  }
-}
-
+        dispatch (
+          login( user.uid, user.displayName )
+        )
+      })
+        .catch ( e => 
+        console.log(e) 
+      }) 
+        } 
+      
 export const startGoogleLogin = () => {
   return (dispatch) => {
     const auth = getAuth()
     signInWithPopup(auth, googleAuthProvider)
-    .then(({ user }) => {
+      .then(({ user }) => {
         dispatch(login(user.uid, user.displayName))
       })
   }
 }
 
-export const login = (uid, displayName) => ({
+export const login = (uid,displayName) => ({
   type: types.login,
-  payload: {
-    uid,
+  payload: { uid,
     displayName
   }
 
 })
-
