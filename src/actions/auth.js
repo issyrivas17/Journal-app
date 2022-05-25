@@ -23,9 +23,9 @@ export const startRegisterWithEmailPasswordName = ( email, password, name) => {
         )
       })
         .catch ( e => 
-        console.log(e) 
-      }) 
-        } 
+        console.log(e)
+      }
+    } 
       
 export const startGoogleLogin = () => {
   return (dispatch) => {
