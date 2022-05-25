@@ -12,32 +12,34 @@ export const startLoginEmailPassword = (email, password) => {
   }
 }
 export const startRegisterWithEmailPasswordName = (email, password, name) => {
-  return ( dispatch ) => {
-    firebase.auth().createUserWithEmailAndPassword(email,password)
-    .then(async ({user}) => { 
+  return (dispatch) => {
 
-    await user.updateProfile ({ displayName:name});
+  firebase.auth().createUserWithEmailAndPassword( email, password ) 
+  .then ( ({user} )=> { 
 
-    dispatch (
-      login (user.uid, user.displayName ) 
-    )
-    )}
+  user.updateProfile ({displayName:name}); 
+
+  dispatch (
+    login (user.uid, user.displayName)
+  )
+    }) 
+    .catch (e => {
+      console.log(e) 
+    }) 
+  }
 }
-}
-
 
 export const startGoogleLogin = () => {
   return (dispatch) => {
     const auth = getAuth()
     signInWithPopup(auth, googleAuthProvider)
-      .then(({ user }) => {
+    .then(({ user }) => {
         dispatch(login(user.uid, user.displayName))
       })
   }
 }
 
 export const login = (uid, displayName) => ({
-
   type: types.login,
   payload: {
     uid,
@@ -45,3 +47,4 @@ export const login = (uid, displayName) => ({
   }
 
 })
+
