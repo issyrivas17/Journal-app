@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { types } from '../types/types'
 import { getAuth, signInWithPopup } from 'firebase/auth'
 import { googleAuthProvider } from '../components/firebase/firebase-Config'
@@ -11,23 +12,25 @@ export const startLoginEmailPassword = (email, password) => {
   }
 }
 
-export const startRegisterWithEmailPasswordName = ( email, password, name) => {
-    return ( dispatch ) => {
-      firebase.auth().createUserWithEmailAndPassword (email,password) 
-      .then( async({user}) => { 
+export const startRegisterWithEmailPasswordName = ( email, password, name ) => {
+  return ( dispatch ) => {
 
-        await user.updateProfile({ displayName: name }) 
+      firebase.auth().createUserWithEmailAndPassword( email, password )
+          .then( async({ user }) => {
 
-        dispatch (
-          login( user.uid, user.displayName )
-      )
-      })
-     
-      .catch (e => {
-        console.log(e) 
-      })
-    
-    } 
+              await user.updateProfile({ displayName: name });
+
+              dispatch(
+                  login( user.uid, user.displayName )
+              );
+          })
+          .catch( e => {
+              console.log(e);
+          
+          })
+
+  }
+}
       
 export const startGoogleLogin = () => {
   return (dispatch) => {
