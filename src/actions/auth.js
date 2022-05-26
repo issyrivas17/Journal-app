@@ -1,8 +1,7 @@
 /* eslint-disable */
 import { types } from '../types/types'
-import { getAuth, signInWithPopup } from 'firebase/auth'
+import { getAuth, signInWithPopup,createUserWithEmailAndPassword,updateProfile} from 'firebase/auth'
 import { googleAuthProvider } from '../components/firebase/firebase-Config'
-import { async } from '@firebase/util'
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
