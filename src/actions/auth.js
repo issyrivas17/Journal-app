@@ -12,23 +12,20 @@ export const startLoginEmailPassword = (email, password) => {
   }
 }
 
-export const startRegisterWithEmailPasswordName = ( email, password, name ) => {
-  return ( dispatch ) => {
-
-      firebase.auth().createUserWithEmailAndPassword( email, password )
-          .then( async({ user }) => {
-
-              await user.updateProfile({ displayName: name });
-
-              dispatch(
-                  login( user.uid, user.displayName )
-              );
+export const startRegisterWithEmailPasswordName = (email, password, name) => {
+  return (dispatch) => {
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+          .then(async(user) => {
+              await updateProfile(auth.currentUser,{
+                  displayName:name
+              })
+              console.log(user);
           })
-          .catch( e => {
-              console.log(e);
-          
-          })
-
+          .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+          });
   }
 }
       
