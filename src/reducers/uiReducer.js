@@ -18,7 +18,19 @@ export const uiReducer = (state = initialState, action) => {
       return {
         ...state,
         msgError: null
+      } 
+      case types.uiStarLoanding: 
+      return {
+        ...state,
+        loanding : true 
       }
+
+      case types.uiFinisLoanding: 
+      return {
+        ... state,
+        loanding : false
+      }
+      
     default:
       return state
   }
