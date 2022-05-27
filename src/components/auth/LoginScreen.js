@@ -15,14 +15,22 @@ export const LoginScreen = () => {
     email: '',
     password: ''
 
-  })
+  }) 
 
   const { email, password } = formValues
 
   const handleLogin = (e) => {
     e.preventDefault()
-    dispatch(startLoginEmailPassword(email, password))
-  }
+    dispatch(startLoginEmailPassword(email, password)) 
+  } 
+
+
+  useEffect( () => {
+    console.log('Cambio el email')
+    },[email])
+    
+
+
 
   const handleGoogleLogin = () => {
     dispatch(startGoogleLogin())
