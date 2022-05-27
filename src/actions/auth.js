@@ -7,11 +7,13 @@ import { finishLoading,startLoading } from './ui';
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => { 
     dispatch (startLoading ()); 
+
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             dispatch(
-                login( user.uid, user.displayName ));
+                login( user.uid, user.displayName )); 
+
                 dispatch (finishLoanding ()); 
         })
         .catch((error) => {

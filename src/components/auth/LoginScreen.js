@@ -24,14 +24,6 @@ export const LoginScreen = () => {
     dispatch(startLoginEmailPassword(email, password)) 
   } 
 
-
-  useEffect( () => {
-    console.log('Cambio el email')
-    },[email])
-    
-
-
-
   const handleGoogleLogin = () => {
     dispatch(startGoogleLogin())
   } 
