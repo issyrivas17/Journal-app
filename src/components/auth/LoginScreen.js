@@ -7,7 +7,7 @@ import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth'
 
 export const LoginScreen = () => {
   const dispatch = useDispatch()
-  const { msgError } = useSelector(state => state.ui)
+  const { loanding } = useSelector(state => state.ui)
 
   console.log(msgError)
 
@@ -64,6 +64,7 @@ export const LoginScreen = () => {
        <button
        type="submit"
        className="btn btn-primary btn-block"
+       disabled= {loanding}
        >
        Login
        </button>
