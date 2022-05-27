@@ -20,11 +20,6 @@ export const uiReducer = (state = initialState, action) => {
         msgError: null
       }
     default:
-      return state 
-      case types.uiSetError:
-      return {
-        ...state,
-        msgError: action.payload
-      }
-  } 
+      return state
+  }
 }
