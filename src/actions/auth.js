@@ -32,7 +32,8 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
               const errorCode = error.code;
               const errorMessage = error.message; 
           });
-  }
+  } 
+  
 }
       
 export const startGoogleLogin = () => {
