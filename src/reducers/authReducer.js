@@ -1,21 +1,8 @@
-
-/*
-
-{
-    auid: akjskajsakjsa
-    name: 'Ismenia'
-}
-
-*/
-
 import { types } from '../types/types'
 
 const initialState = {
   uid: '',
-  name: '',
-  dir: {
-    caricuao: ''
-  }
+  name: 'Ismenia'
 }
 
 export const authReducer = (state = { initialState }, action) => {
