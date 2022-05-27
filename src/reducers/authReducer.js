@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { types } from '../types/types'
 
 const initialState = {
@@ -17,5 +18,5 @@ export const authReducer = (state = { initialState }, action) => {
 
     default:
       return state
-  }
+  } 
 }
