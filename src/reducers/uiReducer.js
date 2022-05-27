@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { types } from '../types/types'
 
 const initialState = {
@@ -19,6 +20,11 @@ export const uiReducer = (state = initialState, action) => {
         msgError: null
       }
     default:
-      return state
-  }
+      return state 
+      case types.uiSetError:
+      return {
+        ...state,
+        msgError: action.payload
+      }
+  } 
 }
