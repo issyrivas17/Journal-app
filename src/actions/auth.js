@@ -2,26 +2,27 @@
 import { types } from '../types/types'
 import { getAuth, signInWithPopup,createUserWithEmailAndPassword,updateProfile,signInWithEmailAndPassword} from 'firebase/auth'
 import { googleAuthProvider } from '../components/firebase/firebase-Config'
-import { FinishLoanding, StartLoading } from './ui';
+import { finishLoading,startLoading } from './ui';
 
 export const startLoginEmailPassword = (email, password) => {
-  return (dispatch) => {
+  return (dispatch) => { 
+    dispatch (startLoading ()); 
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             dispatch(
-                login( user.uid, user.displayName )
-            );
+                login( user.uid, user.displayName ));
+                dispatch (finishLoanding ()); 
         })
         .catch((error) => {
-            console.log(error);
+            console.log(error); 
+            dispatch (finishLoading ()); 
         });
 };
 };
 
 export const startRegisterWithEmailPasswordName = (email, password, name) => {
   return (dispatch) => { 
-    dispatch (StartLoading)
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
           .then(async(user) => {
@@ -29,12 +30,10 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
                   displayName:name
               }) 
               console.log(user);     
-              dispatch ( FinishLoanding ());
           })
           .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;  
-              dispatch (FinishLoanding ()) ; 
           });
   } 
   

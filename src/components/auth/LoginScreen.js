@@ -7,9 +7,9 @@ import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth'
 
 export const LoginScreen = () => {
   const dispatch = useDispatch()
-  const { loanding } = useSelector(state => state.ui)
+  const { loading } = useSelector(state => state.ui)
 
-  console.log(msgError)
+  
 
   const [formValues, handleInputChange] = useForm({
     email: '',
@@ -64,7 +64,7 @@ export const LoginScreen = () => {
        <button
        type="submit"
        className="btn btn-primary btn-block"
-       disabled= {loanding}
+       disabled= {loading}
        >
        Login
        </button>
