@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable */
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
 import { useDispatch, useSelector } from 'react-redux'
@@ -25,8 +26,8 @@ export const LoginScreen = () => {
 
   const handleGoogleLogin = () => {
     dispatch(startGoogleLogin())
-  }
-
+  } 
+  
   return (
     <div>
 
