@@ -11,10 +11,10 @@
 import { types } from '../types/types'
 
 const initialState = {
-  uid: 123456,
-  name: 'Ismenia',
+  uid: '',
+  name: '',
   dir: {
-    caricuao: 434
+    caricuao: ''
   }
 }
 

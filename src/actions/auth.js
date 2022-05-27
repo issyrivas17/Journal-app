@@ -5,11 +5,18 @@ import { googleAuthProvider } from '../components/firebase/firebase-Config'
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(login(123, 'Maria'))
-    }, 3500)
-  }
-}
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+        .then(({user}) => {
+            dispatch(
+                login( user.uid, user.displayName )
+            );
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
+};
 
 export const startRegisterWithEmailPasswordName = (email, password, name) => {
   return (dispatch) => {
