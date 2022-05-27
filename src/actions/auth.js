@@ -20,18 +20,21 @@ export const startLoginEmailPassword = (email, password) => {
 };
 
 export const startRegisterWithEmailPasswordName = (email, password, name) => {
-  return (dispatch) => {
+  return (dispatch) => { 
+    dispatch (StartLoading)
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
           .then(async(user) => {
               await updateProfile(auth.currentUser,{
                   displayName:name
-              })
-              console.log(user);    
+              }) 
+              console.log(user);     
+              dispatch ( FinishLoanding ());
           })
           .catch((error) => {
               const errorCode = error.code;
-              const errorMessage = error.message; 
+              const errorMessage = error.message;  
+              dispatch (FinishLoanding ()) ; 
           });
   } 
   
@@ -39,14 +42,11 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
       
 export const startGoogleLogin = () => {
   return (dispatch) => { 
-
-    dispatch (StartLoading ()); 
     const auth = getAuth() 
     signInWithPopup(auth, googleAuthProvider)
       .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName))}) 
-
-        dispatch (FinishLoanding ()); 
+        dispatch(login(user.uid, user.displayName))
+      })
   }
 }
 
