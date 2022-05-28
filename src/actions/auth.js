@@ -3,7 +3,6 @@ import { types } from '../types/types'
 import { getAuth, signInWithPopup,createUserWithEmailAndPassword,updateProfile,signInWithEmailAndPassword} from 'firebase/auth'
 import { googleAuthProvider } from '../components/firebase/firebase-Config'
 import { FinishLoading,StartLoading } from './ui';
-import { async } from '@firebase/util';
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => { 
@@ -58,12 +57,11 @@ export const login = (uid,displayName) => ({
 
 }); 
 
-export const startLogout = () => {
-  return async (dispatch) => {
-    await FirebaseError.auth().signOut(); 
-
-    dispatch (logout () );  
-
+export const logoutAction = () => {
+  return async(dispatch) => {
+      const auth = getAuth();
+      await signOut(auth);
+      dispatch(logout());
   }
 }
 

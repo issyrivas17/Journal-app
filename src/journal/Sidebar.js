@@ -1,12 +1,14 @@
 /* eslint-disable */
 import React  from 'react'
+import { useDispatch } from 'react-redux';
+import { logoutAction} from '../actions/auth';
 import { JournalEntries } from './JournalEntries'
 
 export const Sidebar = () => {
 
-  const dispatch = useDispatch (); 
+  const dispatch = useDispatch(); 
   const handleLogout = () => { 
-   dispatch ( )
+   dispatch (logoutAction () )
 
   }
   return (
