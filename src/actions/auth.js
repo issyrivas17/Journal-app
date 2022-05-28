@@ -65,6 +65,3 @@ export const logoutAction = () => {
   }
 }
 
-export const logout = () => ({
-  type: types.logout
-})

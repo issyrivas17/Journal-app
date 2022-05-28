@@ -7,10 +7,10 @@ import { JournalEntries } from './JournalEntries'
 export const Sidebar = () => {
 
   const dispatch = useDispatch(); 
-  
+
   const handleLogout = () => { 
    dispatch (logoutAction () )
-
+ 
   }
   return (
    <aside className='journal__sidebar'>
