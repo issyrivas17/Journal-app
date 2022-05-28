@@ -5,7 +5,7 @@ import { JournalEntries } from './JournalEntries'
 export const Sidebar = () => {
 
   const handleLogout = () => { 
-    console.log(click)
+    console.log('click')
 
   }
   return (
