@@ -1,11 +1,12 @@
 /* eslint-disable */
-import React from 'react'
+import React  from 'react'
 import { JournalEntries } from './JournalEntries'
 
 export const Sidebar = () => {
 
-  const handleLogout = () => {
-    
+  const handleLogout = () => { 
+    console.log(click)
+
   }
   return (
    <aside className='journal__sidebar'>
@@ -16,7 +17,9 @@ export const Sidebar = () => {
        <span>  Ismenia </span>
        </h3>
 
-       <button className='btn'>
+       <button className='btn'
+       onClick={handleLogout}
+       >
          Logout
            </button>
        </div>
