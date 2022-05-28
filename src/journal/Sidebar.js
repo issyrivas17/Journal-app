@@ -1,7 +1,12 @@
+/* eslint-disable */
 import React from 'react'
 import { JournalEntries } from './JournalEntries'
 
 export const Sidebar = () => {
+
+  const handleLogout = () => {
+    
+  }
   return (
    <aside className='journal__sidebar'>
 
