@@ -57,19 +57,3 @@ export const login = (uid,displayName) => ({
 
 }); 
 
-
-export const starLogout = () => {
-  return (dispatch) => {
-    Firebase.auth().signOut(); 
-
-    dispatch (Logout ()); 
-  }
-} 
-
-export const logoutAction = () => {
-  return async(dispatch) => {
-      const auth = getAuth();
-      await signOut(auth);
-      dispatch(logout());
-  }
-}
