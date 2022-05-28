@@ -1,11 +1,13 @@
 /* eslint-disable */
 import React  from 'react'
+import { useDispatch } from 'react-redux'
+import { starLogout } from '../actions/auth'
 import { JournalEntries } from './JournalEntries'
 
 export const Sidebar = () => {
 
   const handleLogout = () => { 
-    console.log('click')
+   dispatch (starLogout () )
 
   }
   return (
