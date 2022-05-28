@@ -57,11 +57,16 @@ export const login = (uid,displayName) => ({
 
 }); 
 
-export const logoutAction = () => {
-  return async(dispatch) => {
-      const auth = getAuth();
-      await signOut(auth);
-      dispatch(logout());
-  }
-}
+export const startLogout = () => {
+  return async (dispatch) => {
 
+      const auth = getAuth();
+      await auth.signOut();
+
+      dispatch( logout() );
+  }
+};
+
+export const logout = () => ({
+  type: types.logout
+})
