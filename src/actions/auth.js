@@ -58,3 +58,8 @@ export const login = (uid,displayName) => ({
 }); 
 
 
+export const starLogout = () => {
+  return (dispatch) => {
+    Firebase.auth().signOut(); 
+  }
+}
