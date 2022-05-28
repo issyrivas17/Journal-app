@@ -6,19 +6,17 @@ import { finishLoading,startLoading } from './ui';
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => { 
-    dispatch (startLoading ()); 
+    dispatch(startLoading ()); 
 
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
-            dispatch(
-                login( user.uid, user.displayName )); 
-
-                dispatch (finishLoanding ()); 
+            dispatch(login( user.uid, user.displayName )); 
+            dispatch (finishLoading ()); 
         })
         .catch((error) => {
             console.log(error); 
-            dispatch (finishLoading ()); 
+            dispatch(finishLoading ()); 
         });
 };
 };
