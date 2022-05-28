@@ -10,11 +10,11 @@ export const removeError = () => ({
   type: types.uiRemoveError
 }) 
 
-export const startLoading = () => ({
+export const StartLoading = () => ({
   type: types.uiStarLoading
 }) 
 
-export const finishLoading = () => ({
+export const FinishLoading = () => ({
   type: types.uiFinisLoading
 })
 
