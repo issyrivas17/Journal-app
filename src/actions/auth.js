@@ -6,7 +6,7 @@ import { finishLoading,startLoading } from './ui';
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => { 
-    dispatch(startLoading ()); 
+    dispatch (startLoading ()); 
 
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
