@@ -63,7 +63,7 @@ export const startLogout = () => {
       const auth = getAuth();
       await auth.signOut();
 
-      dispatch( logout() );
+      dispatch( logoutAction() );
   }
 };
 
