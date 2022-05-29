@@ -67,6 +67,10 @@ export const startLogout = () => {
   }
 };
 
-export const logout = () => ({
-  type: types.logout
-})
+export const logoutAction = () => {
+  return async(dispatch) => {
+      const auth = getAuth();
+      await signOut(auth);
+      dispatch(logout());
+  }
+} 
