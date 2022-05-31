@@ -1,78 +1,62 @@
 /* eslint-disable */  
-import React, { useEffect } from 'react'
-import { Routes, Route} from "react-router-dom";
-import { getAuth, onAuthStateChanged } from '@firebase/auth';
-import { useDispatch } from 'react-redux';
-import {login} from '../actions/auth'
-import { useState } from 'react';
-import {AuthRouter} from '../routers'
-import { PrivateRoute } from '../routers/PrivateRoute';
-import { PublicRoute } from '../routers/PublicRoute';
-import { JournalScreen } from '../../journal/JournalScreen';
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom"; 
+
+import {LoginScreen} from '../auth/LoginScreen' 
+import {JournalScreen} from '../../journal/JournalScreen' 
+import { auth } from "../firebase/firabase-config"; 
+import {AuthRouter} from '../routers/AuthRouter' 
+import {PrivateRoute} from '../routers/PrivateRoute' 
+import {PublicRoute} from '../routers/PublicRoute' 
+
+export const AppRouters = () => {
+  const dispatch = useDispatch();
  
-export const AppRouter = () => {
+  const [checking, setChecking] = useState(true);
  
+  const [isLogged, setIsLogged] = useState(false);
  
-    
-    const dispatch = useDispatch();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user?.uid) {
+        dispatch(login(user.uid, user.displayName));
  
-    const [checking, setChecking] = useState(true);
+        setIsLogged(true);
+      } else {
+        setIsLogged(false);
+      }
  
-  
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+      setChecking(false);
+    });
+  }, [dispatch, setChecking, setIsLogged]);
  
+  if (checking) {
+    return <div>Wait...</div>;
+  }
  
-    useEffect(() => {
-        const auth = getAuth();
-        onAuthStateChanged(auth, (user) =>{
-            console.log(user);
+  return (
+    <Routes>
+      <Route
+        path="auth/*"
+        element={
+          <PublicRoute isAuthenticated={isLogged}>
+            <AuthRoutes />
+          </PublicRoute>
+        }
+      />
  
+      <Route
+        path="/"
+        element={
+          <PrivateRoute isAuthenticated={isLogged}>
+            <JournalScreen />
+          </PrivateRoute>
+        }
+      />
  
-            if(user?.uid){
-            dispatch(login( user.uid , user.displayName ));
- 
-            setIsLoggedIn(true);
-            } else {
-                setIsLoggedIn(false);
-            }
- 
-           
-            setChecking(false);
-        })
-    }, [dispatch, setChecking,setIsLoggedIn])
- 
-    if(checking){
-        return(
-                <h1>Espera.....</h1>
-        )
-    }
- 
-    
-    return (
-        <Routes>
-        <Route
-            path="/*"
-            element={
-                <PublicRoute isAuth={isLoggedIn}>
-                    <AuthRouter/>
-                </PublicRoute>
-            }
-        />
- 
-        <Route
-            path="/"
-            element={
-                <PrivateRoute isAuth={isLoggedIn}>
-                    <JournalScreen/> 
-                    
-                </PrivateRoute>
-            }
-        />
-        
- 
+      <Route path="*" element={<div>Not found</div>} />
     </Routes>
-    
-   
-    )
-}
- 
+  );
+};
