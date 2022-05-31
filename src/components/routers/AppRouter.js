@@ -21,7 +21,7 @@ export const AppRouters = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(LoginScreen(user.uid, user.displayName));
  
         setIsLogged(true);
       } else {
@@ -42,7 +42,7 @@ export const AppRouters = () => {
         path="auth/*"
         element={
           <PublicRoute isAuthenticated={isLogged}>
-            <AuthRoutes />
+            <AuthRouter />
           </PublicRoute>
         }
       />
