@@ -1,20 +1,14 @@
 /* eslint-disable */ 
-import React from 'react'
-import { Navigate, useLocation } from 'react-router-dom';
-import { useContext } from 'react/cjs/react.development';
-
-import { AuthContext } from '../auth/authContext';
-
-
-export const PrivateRoute = ({children}) => {
-
- const {user} = useContext(AuthContext);  
-
-const location= useLocation(); 
-
-
-
- return user.logged 
- ? children 
- : <Navigate to = "/login" />  
-}
+import React from 'react';
+import { Navigate } from 'react-router';
+import PropTypes from 'prop-types';
+ 
+ 
+export const PrivateRoute = ({isAuth, children}) => {
+    return isAuth ? children : <Navigate to="/auth/login"/>;
+};
+ 
+PrivateRoute.propTypes = {
+    isAuth: PropTypes.bool.isRequired,
+    element: PropTypes.object.isRequired
+} 
