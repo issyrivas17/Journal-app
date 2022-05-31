@@ -1,15 +1,14 @@
 /* eslint-disable */  
 import React, { useEffect } from 'react'
 import { Routes, Route} from "react-router-dom";
-import { AuthRouter } from './AuthRouter'
-import { JournalScreen } from '../auth/journal/JournalScreen';
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import { useDispatch } from 'react-redux';
 import {login} from '../actions/auth'
 import { useState } from 'react';
- 
-import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
+import {AuthRouter} from '../routers'
+import { PrivateRoute } from '../routers/PrivateRoute';
+import { PublicRoute } from '../routers/PublicRoute';
+import { JournalScreen } from '../../journal/JournalScreen';
  
 export const AppRouter = () => {
  
@@ -55,7 +54,7 @@ export const AppRouter = () => {
             path="/*"
             element={
                 <PublicRoute isAuth={isLoggedIn}>
-                    <AuthRouter />
+                    <AuthRouter/>
                 </PublicRoute>
             }
         />
@@ -64,7 +63,7 @@ export const AppRouter = () => {
             path="/"
             element={
                 <PrivateRoute isAuth={isLoggedIn}>
-                    <JournalScreen/>
+                    <JournalScreen/> 
                     
                 </PrivateRoute>
             }
