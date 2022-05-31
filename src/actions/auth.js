@@ -73,4 +73,8 @@ export const logoutAction = () => {
       await signOut(auth);
       dispatch(logout());
   }
-} 
+}  
+
+export const logout = () => ({
+  type: types.logout
+})
