@@ -57,24 +57,24 @@ export const login = (uid,displayName) => ({
 
 }); 
 
-export const startLogout = () => {
-  return async (dispatch) => {
+  export const startLogout = () => {
+    return async (dispatch) => {
 
-      const auth = getAuth();
-      await auth.signOut();
+        const auth = getAuth();
+        await auth.signOut();
 
-      dispatch( logoutAction() );
-  }
-};
+        dispatch( logoutAction() );
+    }
+  };
 
-export const logoutAction = () => {
-  return async(dispatch) => {
-      const auth = getAuth();
-      await signOut(auth);
-      dispatch(logout());
-  }
-}  
+  export const logoutAction = () => {
+    return async(dispatch) => {
+        const auth = getAuth();
+        await signOut(auth);
+        dispatch(logout());
+    }
+  }  
 
-export const logout = () => ({
-  type: types.logout
-})
+  export const logout = () => ({
+    type: types.logout
+  }); 
