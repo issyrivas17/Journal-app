@@ -8,13 +8,14 @@ import {
 
 import { JournalScreen } from '../../journal/JournalScreen'
 import { AuthRouter } from './AuthRouter'
+import { PrivateRoute } from './PrivateRoute'
 
 export const AppRouter = () => {
   return (
     <div>
        <Router>
        <div>
-           <Switch>
+           <PrivateRoute>
                <Route
                path= "/auth"
                component ={AuthRouter}
@@ -28,7 +29,7 @@ export const AppRouter = () => {
 
              <Redirect to= "auth/login"/>
 
-           </Switch>
+           </PrivateRoute>
        </div>
 
            </Router>
