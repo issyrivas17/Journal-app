@@ -2,7 +2,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom"; 
+import { Route, Router } from "react-router-dom"; 
 
 import {LoginScreen} from '../auth/LoginScreen' 
 import {JournalScreen} from '../../journal/JournalScreen' 
@@ -37,7 +37,7 @@ export const AppRouter= () => {
   }
  
   return (
-    <Routes>
+    <Router>
       <Route
         path="auth/*"
         element={
@@ -57,6 +57,6 @@ export const AppRouter= () => {
       />
  
       <Route path="*" element={<div>Not found</div>} />
-    </Routes>
+    </Router>
   );
 };
