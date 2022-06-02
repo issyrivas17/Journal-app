@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router';
 import { LoginScreen } from '../auth/LoginScreen'; 
 import { RegisterScreen } from '../auth/RegisterScreen'; 
 
-export const AuthRoutes = () => {
+export const AuthRouter = () => {
   return (
     <>
       <div className="auth__main">
