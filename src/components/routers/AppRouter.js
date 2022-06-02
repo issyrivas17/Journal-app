@@ -11,7 +11,7 @@ import {AuthRouter} from '../routers/AuthRouter'
 import {PrivateRoute} from '../routers/PrivateRoute' 
 import {PublicRoute} from '../routers/PublicRoute' 
 
-export const AppRouters = () => {
+export const AppRouter= () => {
   const dispatch = useDispatch();
  
   const [checking, setChecking] = useState(true);
