@@ -6,7 +6,6 @@ import { Route, Router } from "react-router-dom";
 
 import {LoginScreen} from '../auth/LoginScreen' 
 import {JournalScreen} from '../../journal/JournalScreen' 
-import { auth } from "../firebase/firabase-config"; 
 import {AuthRouter} from '../routers/AuthRouter' 
 import {PrivateRoute} from '../routers/PrivateRoute' 
 import {PublicRoute} from '../routers/PublicRoute' 
