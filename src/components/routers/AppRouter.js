@@ -10,6 +10,8 @@ import {AuthRouter} from '../routers/AuthRouter'
 import {PrivateRoute} from '../routers/PrivateRoute' 
 import {PublicRoute} from '../routers/PublicRoute' 
 
+
+// DEBO UBICAR EL AUTH PARA QUE FUNCIONE LA APP
 export const AppRouter= () => {
   const dispatch = useDispatch();
  
