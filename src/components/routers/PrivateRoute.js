@@ -1,14 +1,7 @@
 /* eslint-disable */ 
 import React from 'react';
-import { Navigate } from 'react-router';
-import PropTypes from 'prop-types';
- 
- 
+import { Navigate } from 'react-router-dom';
+
 export const PrivateRoute = ({isAuth, children}) => {
-    return isAuth ? children : <Navigate to="/auth/login"/>; 
+  return isAuth ? children : <Navigate to="/auth/login" />;
 };
- 
-PrivateRoute.propTypes = {
-    isAuth: PropTypes.bool.isRequired,
-    element: PropTypes.object.isRequired
-} 
