@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import {BrowserRouter as Router,Route } from "react-router-dom"; 
+import {BrowserRouter as Router,Route , Routes } from "react-router-dom"; 
 
 import {LoginScreen} from '../auth/LoginScreen' 
 import {JournalScreen} from '../../journal/JournalScreen' 
@@ -40,7 +40,8 @@ export const AppRouter= () => {
  
   return (
     <Router>
-      <Route
+      <Routes> 
+        <Route
         path="auth/*"
         element={
           <PublicRoute isAuthenticated={isLogged}>
@@ -58,7 +59,8 @@ export const AppRouter= () => {
         }
       />
  
-      <Route path="*" element={<div>Not found</div>} />
+     
+      </Routes>
     </Router>
   );
 };
