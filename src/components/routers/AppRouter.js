@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Router } from "react-router-dom"; 
+import {BrowserRouter as Router,Route } from "react-router-dom"; 
 
 import {LoginScreen} from '../auth/LoginScreen' 
 import {JournalScreen} from '../../journal/JournalScreen' 

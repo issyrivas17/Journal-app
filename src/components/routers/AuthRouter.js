@@ -2,7 +2,7 @@
 import React from 'react'
 import { Route, Router } from 'react-router';
 
-import { LoginScreen } from '../auth/LoginScreen'; 
+import { LoginScreen } from '../auth/LoginScreen';     
 import { RegisterScreen } from '../auth/RegisterScreen'; 
 
 export const AuthRouter = () => {
