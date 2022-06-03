@@ -1,5 +1,5 @@
 /* eslint-disable */  
-import { onAuthStateChanged } from "firebase/auth";
+
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Router } from "react-router-dom"; 
@@ -9,6 +9,7 @@ import {JournalScreen} from '../../journal/JournalScreen'
 import {AuthRouter} from '../routers/AuthRouter' 
 import {PrivateRoute} from '../routers/PrivateRoute' 
 import {PublicRoute} from '../routers/PublicRoute' 
+import { getAuth } from "firebase/auth";
 
 
 export const AppRouter= () => {
@@ -19,7 +20,8 @@ export const AppRouter= () => {
   const [isLogged, setIsLogged] = useState(false);
  
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const auth = getAuth () 
+    (auth, (user) => {
       if (user?.uid) {
         dispatch(LoginScreen(user.uid, user.displayName));
  
