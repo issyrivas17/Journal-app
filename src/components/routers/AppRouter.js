@@ -9,7 +9,7 @@ import {JournalScreen} from '../../journal/JournalScreen'
 import {AuthRouter} from '../routers/AuthRouter' 
 import {PrivateRoute} from '../routers/PrivateRoute' 
 import {PublicRoute} from '../routers/PublicRoute' 
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 export const AppRouter= () => {
@@ -21,7 +21,7 @@ export const AppRouter= () => {
  
   useEffect(() => {
     const auth = getAuth () 
-    (auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user?.uid) {
         dispatch(LoginScreen(user.uid, user.displayName));
  
