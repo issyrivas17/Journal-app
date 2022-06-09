@@ -40,7 +40,7 @@ export const AppRouter= () => {
  
   return (
     <Router>
-      <Routes> 
+      <Route> 
         <Route
         path="auth/*"
         element={
@@ -60,7 +60,7 @@ export const AppRouter= () => {
       />
  
      
-      </Routes>
+      </Route>
     </Router>
   );
 };
