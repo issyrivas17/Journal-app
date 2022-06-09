@@ -23,7 +23,7 @@ export const AppRouter= () => {
     const auth = getAuth () 
     onAuthStateChanged(auth, (user) => {
       if (user?.uid) {
-        dispatch(LoginScreen(user.uid, user.displayName));
+        dispatch(LoginScreen(user.uid, user.displayName)); 
  
         setIsLogged(true);
       } else {
