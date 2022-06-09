@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import {BrowserRouter as Router,Route , Routes } from "react-router-dom"; 
+import {BrowserRouter as Route , Routes } from "react-router-dom"; 
 
 import {LoginScreen} from '../auth/LoginScreen' 
 import {JournalScreen} from '../../journal/JournalScreen' 
@@ -39,28 +39,26 @@ export const AppRouter= () => {
   }
  
   return (
-    <Router>
-      <Route> 
+    <BrowserRouter>
+    <Routes>
         <Route
-        path="auth/*"
-        element={
-          <PublicRoute isAuthenticated={isLogged}>
-            <AuthRouter />
-          </PublicRoute>
-        }
-      />
- 
-      <Route
-        path="/"
-        element={
-          <PrivateRoute isAuthenticated={isLogged}>
-            <JournalScreen />
-          </PrivateRoute>
-        }
-      />
- 
-     
-      </Route>
-    </Router>
+            path="/*"
+            element={
+                <PublicRoute isAuth={isLoggedIn}>
+                    <AuthRouter />
+                </PublicRoute>
+            }
+        />
+
+        <Route
+            path="/"
+            element={
+                <PrivateRoute isAuth={isLoggedIn}>
+                    <JournalScreen />
+                </PrivateRoute>
+            }
+        />
+    </Routes>
+</BrowserRouter>
   );
 };
