@@ -13,7 +13,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 export const AppRouter= () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
  
   const [checking, setChecking] = useState(true);
  
